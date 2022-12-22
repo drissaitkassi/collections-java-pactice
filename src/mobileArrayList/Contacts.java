@@ -1,3 +1,5 @@
+package mobileArrayList;
+
 public class Contacts extends MobilePhone {
     String name;
     String phone;

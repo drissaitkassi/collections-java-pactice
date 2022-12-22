@@ -1,3 +1,5 @@
+package mobileArrayList;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +16,7 @@ public class MobilePhone {
 
 
     // add contact
-    public void get_Contact(Contacts c) {
+    public void addContact(Contacts c) {
         if (contacts.contains(c)) {
             System.out.println("deja existant ");
         } else
