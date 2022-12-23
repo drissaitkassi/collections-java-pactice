@@ -9,7 +9,9 @@ public class Contacts extends MobilePhone {
         this.phone=phone;
 
     }
+    public Contacts(){
 
+    };
     public String  toString(){
 
         return ""+this.name+" : "+ this.phone;

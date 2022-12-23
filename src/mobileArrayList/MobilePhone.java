@@ -12,6 +12,7 @@ public class MobilePhone {
     Scanner choiceMenu=new Scanner(System.in);
     Scanner modifyName=new Scanner(System.in);
     Scanner modifyPhone=new Scanner(System.in);
+    Scanner modifyPhone2=new Scanner(System.in);
     Scanner findIndex=new Scanner(System.in);
     Scanner findContact=new Scanner(System.in);
 
@@ -36,12 +37,12 @@ public class MobilePhone {
     }
 
     // modify contact phone
-    public void modifyContactPhone( Contacts c) {
-
-        System.out.println("saisir le nom pour avoir l'index");
-        String nameToModify=findIndex.nextLine();
-        contacts.set(findIndex(nameToModify),c );
-        System.out.println("modifier avec succès ");
+    public void modifyContactPhone( String nom,String nphone) {
+        for (int i = 0; i <contacts.size() ; i++) {
+            if (contacts.get(i).name.equals(nom))
+                contacts.get(i).phone=nphone;
+        }
+;
     }
 
     // modifiy contact
@@ -130,11 +131,10 @@ public class MobilePhone {
                     modifyContactName(contacts3,);*/
                     break;
                 case 4:
-                  /*  System.out.println("pret a modifier");
-                    String newPhone3=modifyPhone.nextLine();
-                    Contacts contacts4=new Contacts(newPhone3);
-                    modifyContactPhone(contacts4);
-*/
+                    System.out.println("pret a modifier");
+
+                    modifyContactPhone(findContact.nextLine(),modifyPhone2.nextLine());
+
                     break;
                 case 5:
                     System.out.println("entrer le nom du contact a supprimer");
