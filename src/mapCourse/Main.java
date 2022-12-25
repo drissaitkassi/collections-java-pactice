@@ -6,8 +6,11 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner locScanner=new Scanner(System.in);
+        Scanner exeScanner=new Scanner(System.in);
 
         ArrayList<Integer> allPossibleLocations=new ArrayList<>();
+
+
         allPossibleLocations.add(1);
         allPossibleLocations.add(2);
         allPossibleLocations.add(3);
@@ -22,13 +25,13 @@ public class Main {
         Map<String,Integer> valleyExits=new HashMap<>();
 
         // road exits
+
         roadExits.put("n",5);
         roadExits.put("w",2);
         roadExits.put("e",3);
         roadExits.put("s",4);
         // road location
         Location roadLocation=new Location(1,"Road ",roadExits);
-
         //hill exits
         hillExits.put("n",5);
         //hill location
@@ -47,6 +50,7 @@ public class Main {
         valleyExits.put("w",2);
         // valley location
         Location valleyLocation=new Location(4,"Valley",valleyExits);
+
         // location map
         locations.put(1,roadLocation);
         locations.put(2,hillLocation);
@@ -56,14 +60,21 @@ public class Main {
 
         System.out.println(locations.get(1).getDescription());
         Integer loc=1;
+        String  ex="n";
+
+
         while (allPossibleLocations.contains(loc)){
 
-            System.out.println( locations.get(loc).getDescription());
-            loc=locScanner.nextInt();
+            System.out.println("you are in "+locations.get(loc).getDescription());
+            Map<String,Integer> exi=locations.get(loc).getExits();
+            System.out.println(exi.get(ex));
+
+            ex=exeScanner.nextLine();
+
         }
 
 
-   /*     System.out.println(""+roadLocation+"\n"+hillLocation+"\n"+builldingLocation+"\n"+
+        /*     System.out.println(""+roadLocation+"\n"+hillLocation+"\n"+builldingLocation+"\n"+
                 valleyLocation+"\n"+forrestLocation);*/
 
 
