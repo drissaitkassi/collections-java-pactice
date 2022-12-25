@@ -58,18 +58,30 @@ public class Main {
         locations.put(4,valleyLocation);
         locations.put(5,forrestLocation);
 
-        System.out.println(locations.get(1).getDescription());
         Integer loc=1;
         String  ex="n";
 
 
         while (allPossibleLocations.contains(loc)){
 
-            System.out.println("you are in "+locations.get(loc).getDescription());
+            //all possible exits per location
             Map<String,Integer> exi=locations.get(loc).getExits();
-            System.out.println(exi.get(ex));
 
-            ex=exeScanner.nextLine();
+            if(exi.containsKey(ex)){
+                loc=(exi.get(ex));
+                System.out.println("you are in "+locations.get(loc).getDescription());
+                ex=exeScanner.nextLine();
+
+            }else {
+                System.out.println("you are  not allowed to go there ");
+                ex=exeScanner.nextLine();
+            }
+
+            if(ex.equals("q")){
+                System.out.println("you quit the game");
+                loc=0;
+            }
+
 
         }
 
