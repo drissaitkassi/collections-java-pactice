@@ -1,0 +1,6 @@
+
+1 : Road 
+2 : Hill 
+3 : Buildding
+4 : Valley
+5 : Forrest

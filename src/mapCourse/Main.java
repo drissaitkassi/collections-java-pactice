@@ -1,5 +1,7 @@
 package mapCourse;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class Main {
@@ -60,12 +62,27 @@ public class Main {
 
         Integer loc=1;
         String  ex="n";
+        FileWriter locationFile = null;
+        try {
+            locationFile = new FileWriter("myLocations.txt");
+            for (Integer loca:locations.keySet()) {
+
+                locationFile.write("\n"+locations.get(loca).getLocationId()+" : "+locations.get(loca).getDescription());
+            }
+            locationFile.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
 
 
         while (allPossibleLocations.contains(loc)){
 
             //all possible exits per location
             Map<String,Integer> exi=locations.get(loc).getExits();
+            System.out.println(exi);
 
             if(exi.containsKey(ex)){
                 loc=(exi.get(ex));
@@ -86,8 +103,8 @@ public class Main {
         }
 
 
-        /*     System.out.println(""+roadLocation+"\n"+hillLocation+"\n"+builldingLocation+"\n"+
-                valleyLocation+"\n"+forrestLocation);*/
+             System.out.println(""+roadLocation+"\n"+hillLocation+"\n"+builldingLocation+"\n"+
+                valleyLocation+"\n"+forrestLocation);
 
 
     }
